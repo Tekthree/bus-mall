@@ -16,10 +16,33 @@ body{
 }
 
 header{
-  background-color: aqua;
+  background-color: #f3f5e7;
   grid-row: 1/2;
   height: 100%;
   width: 100%;
+}
+
+li{
+  padding-right: 20px;
+  color: #2548de;
+}
+
+ul{
+  list-style-type: none;
+  color: #2548de;
+}
+
+a:link{
+  color: #2548de;
+  text-decoration: none;
+ 
+
+}
+
+h4{
+  color: #101a43;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
 }
 
 main{
@@ -30,7 +53,7 @@ main{
 }
 
 footer{
-  background-color: red;
+  background-color: #f3f5e7;
   grid-row: 3/4;
   height: 100%;
   width: 100%;
@@ -45,7 +68,7 @@ main{
 }
 
 article{
-  background-color: red;
+  background-color: #2548de;
   grid-row: 1/4;
   grid-column: 1/2;
   height: 100%;
@@ -57,7 +80,7 @@ article{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:green;
+  background-color:#fefeff;
   grid-row: 1/2;
   grid-column: 2/5;
   height: 100%;
@@ -67,15 +90,16 @@ article{
 }
 
 .vote-button-wrapper{
-  background-color:yellow;
+  background-color:#f6f7ef;
   grid-row: 2/3;
   grid-column: 2/5;
   height: 100%;
   width: 100%;
 }
 
+
 .p-wrapper{
-  background-color: blueviolet;
+  background-color: #f6f7ef;
   grid-row: 3/4;
   grid-column: 2/5;
   height: 100%;
@@ -104,6 +128,14 @@ nav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-image{
+  padding-right: 20px;
+
 }
 
 ul{
@@ -114,6 +146,7 @@ ul{
 div.logo-wrapper{
   display: flex;
   flex-direction: row;
+  align-items: center;
 
 }
 
@@ -125,14 +158,15 @@ div.logo-wrapper{
 
 .vote-btn{
   display: block;
-  color: aliceblue;
+  color: #2548de;
   width: 80%;
   height: 40px;
-  background-color: green;
+  background-color: white;
   margin: 20px auto 20px auto;
-
-
+  outline: 5px solid #2548de;
 }
+
+
 
 .p-wrapper{
   padding: 20px;
@@ -140,6 +174,8 @@ div.logo-wrapper{
 }
 
 p{
+  margin: auto;
+  max-width: 650px;
   margin-bottom: 20px;
 }
 
