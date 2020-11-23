@@ -6,11 +6,12 @@
 
 
 body{
+  font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-rows: .4fr 3fr .4fr;
-  margin: auto;
+  
 
 
 }
@@ -23,17 +24,18 @@ header{
 }
 
 li{
-  padding-right: 20px;
   color: #2548de;
+  padding-right: 20px;
+  font-size: 20px;
 }
 
 ul{
   list-style-type: none;
-  color: #2548de;
+  
 }
 
 a:link{
-  color: #2548de;
+  
   text-decoration: none;
  
 
@@ -154,27 +156,30 @@ div.logo-wrapper{
 
 }
 
-.one-images{
+#one-images{
   width: 400px;
   height: 300px;
  
 }
 
-.two-images{
+#two-images{
   width: 400px;
   height: 300px;
   
 }
 
-.three-images{
+#three-images{
   width: 400px;
   height: 300px;
 }
 
 .vote-btn{
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 20px;
   display: block;
   color: #2548de;
-  width: 80%;
+  width: 60%;
   height: 40px;
   background-color: white;
   margin: 20px auto 20px auto;
@@ -184,6 +189,7 @@ div.logo-wrapper{
 
 
 .p-wrapper{
+  line-height: 3rem;
   font-size: 25px;
   color: #101a43;
   padding: 20px;

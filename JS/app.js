@@ -3,10 +3,10 @@
 var imagesArray = [];
 var randomNumberArray = [];
 var totalVotes = 0;
-var imgWrap = document.getElementsByClassName('images-wrapper');
-var images = document.getElementsByClassName('one-images');
-var imagesTwo = document.getElementsByClassName('two-images');
-var imagesThree = document.getElementsByClassName('three-images');
+var imgWrap = document.getElementById('images-wrapper');
+var imagesOne = document.getElementById('one-images');
+var imagesTwo = document.getElementById('two-images');
+var imagesThree = document.getElementById('three-images');
 
 
 
@@ -22,6 +22,8 @@ var Images = function(name,path='jpg'){
 
 }
 
+
+// make all the object instances
 new Images('bag');
 new Images('banana');
 new Images('bathroom');
@@ -95,46 +97,44 @@ function makeRandomNumber(){
 
 }
 
-makeUniqueRandomNums();
+
+
+
 
 // assign random number to images and render to the html page
 var renderImages = function (){
   makeUniqueRandomNums();
+
+  
+
   var firstImages = randomNumberArray[0];
   var secondImages = randomNumberArray[1];
-  var thirdImages = randomNumberArray[3];
+  var thirdImages = randomNumberArray[2];
 
-  images.src = imagesArray[firstImages].filepath;
-  images.title = imagesArray[firstImages].title;
-  images.alt = imagesArray[firstImages].alt;
+  imagesOne.src = imagesArray[firstImages].filepath;
+  imagesOne.title = imagesArray[firstImages].title;
+  imagesOne.alt = imagesArray[firstImages].alt;
   imagesArray[firstImages].views++;
 
-
-
-  imagesTwo.src = imageArray[secondImages].filepath;
+  imagesTwo.src = imagesArray[secondImages].filepath;
   imagesTwo.title = imagesArray[secondImages].title;
   imagesTwo.alt = imagesArray[secondImages].alt;
   imagesArray[secondImages].views++;
 
-
-
-
-
-
-  imagesThree.src = imagesThree[thirdImages].filepath;
+  imagesThree.src = imagesArray[thirdImages].filepath;
   imagesThree.title = imagesArray[thirdImages].title;
   imagesThree.alt = imagesArray[thirdImages].alt;
-  imagesArray[firstImages].views++;
+  imagesArray[thirdImages].views++;
+
+  console.log(imagesArray[firstImages].filepath);
+  console.log(imagesOne.src);
   
 }  
 
 
 
 
+// imgWrap.addEventListener('click', voteImages);
 
 
-
-
-function randomImage(){
-
-}
+renderImages();
