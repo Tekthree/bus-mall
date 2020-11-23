@@ -48,6 +48,7 @@ h4{
 }
 
 h5{
+  margin-top: 10%;
   font-size: 30px;
 }
 main{
@@ -82,7 +83,7 @@ article{
   padding: 20px;
 }
 
-.images-wrapper{
+#images-wrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,14 +120,14 @@ article{
    width: 100%;
  }
 
- .images-wrapper{
+ #images-wrapper{
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
  }
 } 
 
@@ -178,10 +179,10 @@ div.logo-wrapper{
   text-transform: uppercase;
   font-size: 20px;
   display: block;
-  color: #2548de;
+  color: white;
   width: 60%;
   height: 40px;
-  background-color: white;
+  background-color: #2548de;
   margin: 20px auto 20px auto;
   outline: 5px solid #2548de;
 }
