@@ -45,6 +45,9 @@ h4{
   font-size: 50px;
 }
 
+h5{
+  font-size: 30px;
+}
 main{
   background-color: blue;
   grid-row: 2/3;
@@ -60,6 +63,7 @@ footer{
 }
 
 main{
+  color: #f3f5e7;
   display: grid;
   grid-template-rows: 1.2fr .2fr .6fr;
   grid-template-columns: .8fr 1fr 1fr 1fr;
@@ -150,10 +154,21 @@ div.logo-wrapper{
 
 }
 
-.survey-images{
+.one-images{
   width: 400px;
   height: 300px;
-  margin: auto;
+ 
+}
+
+.two-images{
+  width: 400px;
+  height: 300px;
+  
+}
+
+.three-images{
+  width: 400px;
+  height: 300px;
 }
 
 .vote-btn{
@@ -169,13 +184,15 @@ div.logo-wrapper{
 
 
 .p-wrapper{
+  font-size: 25px;
+  color: #101a43;
   padding: 20px;
   
 }
 
 p{
   margin: auto;
-  max-width: 650px;
+  max-width: 850px;
   margin-bottom: 20px;
 }
 
