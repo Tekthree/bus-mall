@@ -1,5 +1,5 @@
 'use strick'
-
+//Global vaiables 
 var imagesArray = [];
 var randomNumberArray = [];
 var totalVotes = 0;
@@ -13,7 +13,7 @@ var allNames = [];
 var votesArray = [];
 
 
-
+// constructor function for products
 var Images = function(name,path='jpg'){
   this.filepath = `./img/${name}.${path}`;
   this.title = name;
@@ -27,26 +27,40 @@ var Images = function(name,path='jpg'){
 
 
 // make all the object instances
-new Images('bag');
-new Images('banana');
-new Images('bathroom');
-new Images('boots');
-new Images('breakfast');
-new Images('bubblegum');
-new Images('chair');
-new Images('cthulhu');
-new Images('dog-duck');
-new Images('dragon');
-new Images('pen');
-new Images('pet-sweep');
-new Images('scissors');
-new Images('shark');
-new Images('sweep','png');
-new Images('tauntaun');
-new Images('unicorn');
-new Images('usb','gif');
-new Images('water-can');
-new Images('wine-glass');
+
+// function checkForInstantiation(){
+//   if(localStorage.getItem(imagesArray) === null){
+//     var lsImages = localStorage.getItem('imagesArray');
+//     imagesArray = JSON.parse(lsImages);
+
+//   }else{
+    new Images('bag');
+    new Images('banana');
+    new Images('bathroom');
+    new Images('boots');
+    new Images('breakfast');
+    new Images('bubblegum');
+    new Images('chair');
+    new Images('cthulhu');
+    new Images('dog-duck');
+    new Images('dragon');
+    new Images('pen');
+    new Images('pet-sweep');
+    new Images('scissors');
+    new Images('shark');
+    new Images('sweep','png');
+    new Images('tauntaun');
+    new Images('unicorn');
+    new Images('usb','gif');
+    new Images('water-can');
+    new Images('wine-glass');
+
+//   }
+
+
+
+
+// }
 
 
 
@@ -161,6 +175,7 @@ function voteEvent(e){
     document.getElementById("main").style.gridTemplateColumns = "2fr .8fr .8fr .8fr";
     makeChartVariable();
     makeChart();
+    imageLs();
   }
 
   // console.log(totalVotes);
@@ -193,6 +208,12 @@ function makeChartVariable(){
   }
 
 
+}
+
+
+function imageLs(){
+  var stringImages = JSON.stringify(imagesArray);
+  localStorage.setItem('lsImages',stringImages);
 }
 
 
@@ -279,3 +300,5 @@ function makeChart(){
 
 
 }
+
+// checkForInstantiation()
