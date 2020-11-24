@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/reset.css">
   <link rel="stylesheet" href="./CSS/styles.css">
   <title>Bus Mall</title>
 </head>
@@ -32,11 +33,13 @@
 
   </header><!-----------End of Header---------------->
 
-  <main>
+  <main id="main">
     <article id="article">
       <h5>Results</h5>
       <p id="results"></p>
+      
       <p id="results-display"></p>
+      <canvas id="myChart" width="200" height="400" ></canvas>
 
     </article>
     <div id="images-wrapper">
@@ -64,5 +67,7 @@
 
   
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script src="./JS/app.js"></script>
+
 </html>

@@ -9,6 +9,8 @@ var imagesOne = document.getElementById('one-images');
 var imagesTwo = document.getElementById('two-images');
 var imagesThree = document.getElementById('three-images');
 var resultsArea = document.getElementById('results');
+var allNames = [];
+var votesArray = [];
 
 
 
@@ -128,9 +130,9 @@ var renderImages = function (){
   imagesThree.alt = imagesArray[thirdImages].alt;
   imagesArray[thirdImages].views++;
 
-  console.log(imagesArray[firstImages].title);
-  console.log(imagesArray[secondImages].title);
-  console.log(imagesArray[thirdImages].title);
+  // console.log(imagesArray[firstImages].title);
+  // console.log(imagesArray[secondImages].title);
+  // console.log(imagesArray[thirdImages].title);
   // console.log(imagesOne.src);
   
 }  
@@ -141,30 +143,27 @@ var renderImages = function (){
 function voteEvent(e){
   var clickedOnTitle = e.target.title;
 
-  for(var i=0; i > imagesArray.length; i++){
+  //Increment votes
+  for(var i=0; i < imagesArray.length; i++){
     if(clickedOnTitle === imagesArray[i].title){
       imagesArray[i].votes++;
-      
-      
       
     }
     
   }
 
-  //Get article, create new p element, fill it with voted title and append to child
-  var resultsId = document.getElementById('article');
-  // console.log(resultsId);
-  var pElement = document.createElement('p');
-  pElement.innerText = `this item was voted on: ${clickedOnTitle}`;
-  resultsId.appendChild(pElement);
+  //tally total votes
   totalVotes++;
 
-  // console.log(totalVotes)
+  
   if(totalVotes === 25){
     imgWrap.removeEventListener('click', voteEvent);
+    document.getElementById("main").style.gridTemplateColumns = "2fr .8fr .8fr .8fr";
+    makeChartVariable();
+    makeChart();
   }
 
-  console.log(totalVotes);
+  // console.log(totalVotes);
 
   document.getElementById('results').innerText = `the total votes are ${totalVotes}`;
 
@@ -182,3 +181,101 @@ imgWrap.addEventListener('click', voteEvent)
 
 
 renderImages();
+
+
+
+// Loop over imagesArray and fill allnames array with titles
+function makeChartVariable(){
+  for(var i = 0 ; i < imagesArray.length ; i++){
+    allNames.push(imagesArray[i].title);
+    votesArray.push(imagesArray[i].votes);
+  
+  }
+
+
+}
+
+
+
+
+
+function makeChart(){
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: allNames,
+          datasets: [{
+              label: '# of Votes',
+              data: votesArray,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)',
+                  'rgb(255, 255, 255)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+
+
+
+
+}
