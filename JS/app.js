@@ -14,26 +14,31 @@ var votesArray = [];
 
 
 // constructor function for products
-var Images = function(name,path='jpg'){
+var Images = function(name,path='jpg',votes=0,views=0){
   this.filepath = `./img/${name}.${path}`;
   this.title = name;
   this.alt = name;
-  this.votes = 0;
-  this.views = 0;
+  this.votes = votes;
+  this.views = views;
   imagesArray.push(this);
   
 
 }
 
 
-// make all the object instances
+//make all the object instances
 
-// function checkForInstantiation(){
-//   if(localStorage.getItem(imagesArray) === null){
-//     var lsImages = localStorage.getItem('imagesArray');
-//     imagesArray = JSON.parse(lsImages);
+function checkForInstantiation(){
+  if(localStorage.lsImages){
+    var localsImages = localStorage.getItem('lsImages');
+    imagesArray = JSON.parse(localsImages);
 
-//   }else{
+    // for(var i=0; i<stringImages.length; i++){
+    //   new Images(stringImages[i].filepath,stringImages[i].title,stringImages[i].alt,stringImages[i].votes,stringImages[i].views);
+
+    // }
+
+  }else{
     new Images('bag');
     new Images('banana');
     new Images('bathroom');
@@ -55,12 +60,12 @@ var Images = function(name,path='jpg'){
     new Images('water-can');
     new Images('wine-glass');
 
-//   }
+  }
 
 
 
 
-// }
+}
 
 
 
@@ -304,5 +309,5 @@ function makeChart(){
 
 }
 
+checkForInstantiation()
 renderImages();
-// checkForInstantiation()
