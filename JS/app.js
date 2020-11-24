@@ -152,6 +152,14 @@ var renderImages = function (){
 }  
 
 
+function imageLs(){
+  var stringImages = JSON.stringify(imagesArray);
+  localStorage.setItem('lsImages',stringImages);
+  console.log(stringImages);
+}
+
+
+
 // function for checking to see if targeted title matches on of the titles in the image array]
 // removing event listner
 function voteEvent(e){
@@ -195,7 +203,7 @@ imgWrap.addEventListener('click', voteEvent)
 
 
 
-renderImages();
+
 
 
 
@@ -210,11 +218,6 @@ function makeChartVariable(){
 
 }
 
-
-function imageLs(){
-  var stringImages = JSON.stringify(imagesArray);
-  localStorage.setItem('lsImages',stringImages);
-}
 
 
 
@@ -301,4 +304,5 @@ function makeChart(){
 
 }
 
+renderImages();
 // checkForInstantiation()
