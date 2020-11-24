@@ -1,5 +1,5 @@
 'use strick'
-
+//Global vaiables 
 var imagesArray = [];
 var randomNumberArray = [];
 var totalVotes = 0;
@@ -13,40 +13,59 @@ var allNames = [];
 var votesArray = [];
 
 
-
-var Images = function(name,path='jpg'){
+// constructor function for products
+var Images = function(name,path='jpg',votes=0,views=0){
   this.filepath = `./img/${name}.${path}`;
   this.title = name;
   this.alt = name;
-  this.votes = 0;
-  this.views = 0;
+  this.votes = votes;
+  this.views = views;
   imagesArray.push(this);
   
 
 }
 
 
-// make all the object instances
-new Images('bag');
-new Images('banana');
-new Images('bathroom');
-new Images('boots');
-new Images('breakfast');
-new Images('bubblegum');
-new Images('chair');
-new Images('cthulhu');
-new Images('dog-duck');
-new Images('dragon');
-new Images('pen');
-new Images('pet-sweep');
-new Images('scissors');
-new Images('shark');
-new Images('sweep','png');
-new Images('tauntaun');
-new Images('unicorn');
-new Images('usb','gif');
-new Images('water-can');
-new Images('wine-glass');
+//make all the object instances
+
+function checkForInstantiation(){
+  if(localStorage.lsImages){
+    var localsImages = localStorage.getItem('lsImages');
+    imagesArray = JSON.parse(localsImages);
+
+    // for(var i=0; i<stringImages.length; i++){
+    //   new Images(stringImages[i].filepath,stringImages[i].title,stringImages[i].alt,stringImages[i].votes,stringImages[i].views);
+
+    // }
+
+  }else{
+    new Images('bag');
+    new Images('banana');
+    new Images('bathroom');
+    new Images('boots');
+    new Images('breakfast');
+    new Images('bubblegum');
+    new Images('chair');
+    new Images('cthulhu');
+    new Images('dog-duck');
+    new Images('dragon');
+    new Images('pen');
+    new Images('pet-sweep');
+    new Images('scissors');
+    new Images('shark');
+    new Images('sweep','png');
+    new Images('tauntaun');
+    new Images('unicorn');
+    new Images('usb','gif');
+    new Images('water-can');
+    new Images('wine-glass');
+
+  }
+
+
+
+
+}
 
 
 
@@ -138,6 +157,14 @@ var renderImages = function (){
 }  
 
 
+function imageLs(){
+  var stringImages = JSON.stringify(imagesArray);
+  localStorage.setItem('lsImages',stringImages);
+  console.log(stringImages);
+}
+
+
+
 // function for checking to see if targeted title matches on of the titles in the image array]
 // removing event listner
 function voteEvent(e){
@@ -161,6 +188,7 @@ function voteEvent(e){
     document.getElementById("main").style.gridTemplateColumns = "2fr .8fr .8fr .8fr";
     makeChartVariable();
     makeChart();
+    imageLs();
   }
 
   // console.log(totalVotes);
@@ -180,7 +208,7 @@ imgWrap.addEventListener('click', voteEvent)
 
 
 
-renderImages();
+
 
 
 
@@ -194,6 +222,7 @@ function makeChartVariable(){
 
 
 }
+
 
 
 
@@ -279,3 +308,6 @@ function makeChart(){
 
 
 }
+
+checkForInstantiation()
+renderImages();
